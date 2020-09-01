@@ -1,0 +1,3 @@
+rootProject.name='Kolor SeekBar'
+include ':app'
+include ':kolorseekbars'

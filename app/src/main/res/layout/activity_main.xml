@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:tools="http://schemas.android.com/tools"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".MainActivity">
+
+    <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:id="@+id/color_preview"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            android:layout_margin="100dp"/>
+
+    <com.joeshuff.kolorseekbars.HueSeekBar
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:shape="oval"
+            android:id="@+id/hue_seek"
+            android:splitTrack="false"
+            app:defaultHue="240"
+            app:layout_constraintTop_toBottomOf="@id/color_preview"
+            android:layout_marginTop="20dp"
+            android:layout_marginStart="30dp"
+            android:layout_marginEnd="30dp"
+    />
+
+    <com.joeshuff.kolorseekbars.SaturationSeekBar
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/sat_seek"
+            app:layout_constraintTop_toBottomOf="@id/hue_seek"
+            android:splitTrack="false"
+            app:updateSaturationBackgroundFromOthers="true"
+            android:layout_marginTop="20dp"
+            android:layout_marginStart="30dp"
+            android:layout_marginEnd="30dp"/>
+
+    <com.joeshuff.kolorseekbars.BrightnessSeekBar
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/br_seek"
+            app:layout_constraintTop_toBottomOf="@id/sat_seek"
+            app:updateBrightnessBackgroundFromOthers="true"
+            android:splitTrack="false"
+            android:layout_marginTop="20dp"
+            android:layout_marginStart="30dp"
+            android:layout_marginEnd="30dp"/>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

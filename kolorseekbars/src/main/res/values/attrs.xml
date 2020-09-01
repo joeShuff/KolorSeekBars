@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <declare-styleable name="HueSeekBar">
+        <attr name="updateHueBackgroundFromOthers" format="boolean"/>
+        <attr name="defaultHue" format="float"/>
+    </declare-styleable>
+
+    <declare-styleable name="SaturationSeekBar">
+        <attr name="updateSaturationBackgroundFromOthers" format="boolean"/>
+        <attr name="defaultSaturation" format="float"/>
+    </declare-styleable>
+
+    <declare-styleable name="BrightnessSeekBar">
+        <attr name="updateBrightnessBackgroundFromOthers" format="boolean"/>
+        <attr name="defaultBrightness" format="float"/>
+    </declare-styleable>
+</resources>
