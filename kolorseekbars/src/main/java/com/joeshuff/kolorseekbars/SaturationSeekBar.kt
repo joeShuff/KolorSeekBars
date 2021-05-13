@@ -14,14 +14,16 @@ class SaturationSeekBar(context: Context, attrs: AttributeSet): AppCompatSeekBar
 
     var backgroundDependsOnOtherSliders = false
     var defaultSaturation = 1f
+    var progressBarHeight: Int? = null
 
     init {
-        min = 0
         max = 1000
 
         context.theme.obtainStyledAttributes(attrs, R.styleable.SaturationSeekBar, 0, 0).apply {
             backgroundDependsOnOtherSliders = getBoolean(R.styleable.SaturationSeekBar_updateSaturationBackgroundFromOthers, false)
             defaultSaturation = getFloat(R.styleable.SaturationSeekBar_defaultSaturation, KolorCreator.DEFAULT_SATURATION)
+            val loadedHeight = getDimensionPixelSize(R.styleable.HueSeekBar_hueProgressHeight, -1)
+            progressBarHeight = if (loadedHeight < 0) null else loadedHeight
 
             if (defaultSaturation < 0f || defaultSaturation > 1f) {
                 throw InputMismatchException("defaultSaturation needs to be >= 0f and <= 1f. You input $defaultSaturation")

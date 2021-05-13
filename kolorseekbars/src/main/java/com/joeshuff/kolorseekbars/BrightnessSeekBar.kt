@@ -16,7 +16,6 @@ class BrightnessSeekBar(context: Context, attrs: AttributeSet): AppCompatSeekBar
     var defaultBrightness = 1f
 
     init {
-        min = 0
         max = 1000
 
         context.theme.obtainStyledAttributes(attrs, R.styleable.BrightnessSeekBar, 0, 0).apply {

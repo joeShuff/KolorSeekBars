@@ -16,14 +16,16 @@ class HueSeekBar(context: Context, attrs: AttributeSet) : androidx.appcompat.wid
 
     var backgroundDependsOnOtherSliders = false
     var defaultHue = 0f
+    var progressBarHeight: Int? = null
 
     init {
-        min = 0
         max = 360
 
         context.theme.obtainStyledAttributes(attrs, R.styleable.HueSeekBar, 0, 0).apply {
             backgroundDependsOnOtherSliders = getBoolean(R.styleable.HueSeekBar_updateHueBackgroundFromOthers, false)
             defaultHue = getFloat(R.styleable.HueSeekBar_defaultHue, KolorCreator.DEFAULT_HUE)
+            val loadedHeight = getDimensionPixelSize(R.styleable.HueSeekBar_hueProgressHeight, -1)
+            progressBarHeight = if (loadedHeight < 0) null else loadedHeight
 
             if (defaultHue < 0f || defaultHue > 360f) {
                 throw InputMismatchException("defaultHue needs to be >= 0f and <= 360f. You input $defaultHue")
@@ -49,13 +51,13 @@ class HueSeekBar(context: Context, attrs: AttributeSet) : androidx.appcompat.wid
     }
 
     private fun createHueDrawable(saturation: Float, brightness: Float): Bitmap {
-        val bitmap = Bitmap.createBitmap(360, max(1, height), Bitmap.Config.ARGB_8888)
+        val bitmap = Bitmap.createBitmap(360, progressBarHeight?: max(1, height), Bitmap.Config.ARGB_8888)
         val canvas = Canvas(bitmap)
 
         (0..360).toList().forEach {
             val paint = Paint()
             paint.color = Color.HSVToColor(arrayOf(it.toFloat(), saturation, brightness).toFloatArray())
-            canvas.drawRect(it.toFloat(), 0f, (it + 1).toFloat(), max(1, height).toFloat(), paint)
+            canvas.drawRect(it.toFloat(), 0f, (it + 1).toFloat(), (progressBarHeight?: max(1, height)).toFloat(), paint)
         }
 
 //        return bitmap.getRoundedCornerBitmap() //Doesn't really work well yet

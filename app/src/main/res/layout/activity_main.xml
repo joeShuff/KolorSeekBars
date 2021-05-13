@@ -12,15 +12,14 @@
             android:layout_height="60dp"
             android:id="@+id/color_preview"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintBottom_toBottomOf="parent"
             android:layout_margin="100dp"/>
 
     <com.joeshuff.kolorseekbars.HueSeekBar
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:shape="oval"
             android:id="@+id/hue_seek"
             android:splitTrack="false"
+            android:thumb="@drawable/thumb_with_preview"
             app:defaultHue="240"
             app:layout_constraintTop_toBottomOf="@id/color_preview"
             android:layout_marginTop="20dp"
@@ -34,6 +33,7 @@
             android:id="@+id/sat_seek"
             app:layout_constraintTop_toBottomOf="@id/hue_seek"
             android:splitTrack="false"
+            android:thumb="@drawable/thumb_with_preview"
             app:updateSaturationBackgroundFromOthers="true"
             android:layout_marginTop="20dp"
             android:layout_marginStart="30dp"
@@ -46,6 +46,7 @@
             app:layout_constraintTop_toBottomOf="@id/sat_seek"
             app:updateBrightnessBackgroundFromOthers="true"
             android:splitTrack="false"
+            android:thumb="@drawable/thumb_with_preview"
             android:layout_marginTop="20dp"
             android:layout_marginStart="30dp"
             android:layout_marginEnd="30dp"/>

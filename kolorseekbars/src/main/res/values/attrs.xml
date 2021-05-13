@@ -3,15 +3,18 @@
     <declare-styleable name="HueSeekBar">
         <attr name="updateHueBackgroundFromOthers" format="boolean"/>
         <attr name="defaultHue" format="float"/>
+        <attr name="hueProgressHeight" format="dimension"/>
     </declare-styleable>
 
     <declare-styleable name="SaturationSeekBar">
         <attr name="updateSaturationBackgroundFromOthers" format="boolean"/>
         <attr name="defaultSaturation" format="float"/>
+        <attr name="saturationProgressHeight" format="dimension"/>
     </declare-styleable>
 
     <declare-styleable name="BrightnessSeekBar">
         <attr name="updateBrightnessBackgroundFromOthers" format="boolean"/>
         <attr name="defaultBrightness" format="float"/>
+        <attr name="brightnessProgressHeight" format="dimension"/>
     </declare-styleable>
 </resources>
