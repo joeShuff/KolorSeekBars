@@ -5,9 +5,9 @@ import android.content.SharedPreferences
 
 class KolorPreferences(
     context: Context,
-    private val huePreferenceKey: String? = null,
-    private val saturationPreferenceKey: String? = null,
-    private val brightnessPreferenceKey: String? = null
+    private val huePreferenceKey: String = "hue-val",
+    private val saturationPreferenceKey: String = "sat-val",
+    private val brightnessPreferenceKey: String = "bri-val"
 ) {
 
     var preferences: SharedPreferences = context.getSharedPreferences("kolor-preferences", Context.MODE_PRIVATE)
