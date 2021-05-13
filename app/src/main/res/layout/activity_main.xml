@@ -36,6 +36,7 @@
             android:thumb="@drawable/thumb_with_preview"
             app:updateSaturationBackgroundFromOthers="true"
             android:layout_marginTop="20dp"
+            app:defaultSaturation="0"
             android:layout_marginStart="30dp"
             android:layout_marginEnd="30dp"/>
 
@@ -50,5 +51,14 @@
             android:layout_marginTop="20dp"
             android:layout_marginStart="30dp"
             android:layout_marginEnd="30dp"/>
+
+    <Button
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:id="@+id/clearStorageButton"
+            app:layout_constraintTop_toBottomOf="@id/br_seek"
+            android:layout_marginTop="16dp"
+            android:text="Clear Preferences"
+    />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

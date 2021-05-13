@@ -17,5 +17,7 @@ class MainActivity : AppCompatActivity() {
         KolorCreator(hue_seek, sat_seek, br_seek, preferences) {
             color_preview.setBackgroundColor(it)
         }
+
+        clearStorageButton.setOnClickListener { KolorPreferences(applicationContext).clearStorage() }
     }
 }

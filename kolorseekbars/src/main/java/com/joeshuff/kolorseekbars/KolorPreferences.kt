@@ -18,7 +18,22 @@ class KolorPreferences(
         brightnessPreferenceKey?.let { preferences.edit().putFloat(it, bri).commit() }
     }
 
-    fun hue(): Float? = huePreferenceKey?.let { preferences.getFloat(it, KolorCreator.DEFAULT_HUE) }
-    fun saturation(): Float? = saturationPreferenceKey?.let { preferences.getFloat(it, KolorCreator.DEFAULT_SATURATION) }
-    fun brightness(): Float? = brightnessPreferenceKey?.let { preferences.getFloat(it, KolorCreator.DEFAULT_BRIGHTNESS) }
+    fun clearStorage() {
+        preferences.edit().clear().commit()
+    }
+
+    fun hue(): Float? = huePreferenceKey?.let {
+        val loaded = preferences.getFloat(it, -1f)
+        if (loaded == -1f) return null else loaded
+    }
+
+    fun saturation(): Float? = saturationPreferenceKey?.let {
+        val loaded = preferences.getFloat(it, -1f)
+        if (loaded == -1f) return null else loaded
+    }
+
+    fun brightness(): Float? = brightnessPreferenceKey?.let {
+        val loaded = preferences.getFloat(it, -1f)
+        if (loaded == -1f) return null else loaded
+    }
 }
