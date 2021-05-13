@@ -9,6 +9,7 @@ class KolorCreator(
     private var hueSeekBar: HueSeekBar? = null,
     private var saturationSeekBar: SaturationSeekBar? = null,
     private var brightnessSeekBar: BrightnessSeekBar? = null,
+    private val preferences: KolorPreferences? = null,
     val onColorChange: (newColor: Int) -> Unit) {
 
     companion object {
@@ -31,9 +32,9 @@ class KolorCreator(
             Log.w("NO SLIDERS", "No sliders have been found on initialise. Please use setters to add sliders")
         }
 
-        hueSeekBar?.let { setHueSeekBar(it); hue = it.defaultHue }
-        saturationSeekBar?.let { setSaturationSeekBar(it); saturation = it.defaultSaturation }
-        brightnessSeekBar?.let { setBrightnessSeekBar(it); brightness = it.defaultBrightness }
+        hueSeekBar?.let { setHueSeekBar(it); hue = preferences?.hue()?: it.defaultHue }
+        saturationSeekBar?.let { setSaturationSeekBar(it); saturation = preferences?.saturation()?: it.defaultSaturation }
+        brightnessSeekBar?.let { setBrightnessSeekBar(it); brightness = preferences?.brightness()?: it.defaultBrightness }
 
         update()
     }
@@ -43,6 +44,8 @@ class KolorCreator(
         onColorChange.invoke(newColor)
 
         Log.i("KolorSlider", "Update received")
+
+        preferences?.update(hue, saturation, brightness)
 
         hueSeekBar?.update(hue, saturation, brightness)
         saturationSeekBar?.update(hue, saturation, brightness)

@@ -3,6 +3,7 @@ package com.joeshuff.kolorseekbarexample
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import com.joeshuff.kolorseekbars.KolorCreator
+import com.joeshuff.kolorseekbars.KolorPreferences
 import kotlinx.android.synthetic.main.activity_main.*
 
 class MainActivity : AppCompatActivity() {
@@ -11,7 +12,9 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        KolorCreator(hue_seek, sat_seek, br_seek) {
+        val preferences = KolorPreferences(applicationContext, "hue_val", "sat_val", "bri_val" )
+
+        KolorCreator(hue_seek, sat_seek, br_seek, preferences) {
             color_preview.setBackgroundColor(it)
         }
     }
